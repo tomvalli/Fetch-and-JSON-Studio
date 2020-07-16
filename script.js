@@ -4,6 +4,9 @@ function init() {
 
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then( response=> {
         response.json().then( json=> {
+
+            document.getElementById("count").innerHTML = "Astronaut Count: " + json.length;
+
             for(let i = 0; i < json.length; i++) {
                 container.innerHTML += `
                 <div class="astronaut">
@@ -20,11 +23,8 @@ function init() {
                 `;
 
                 let id = "id" + i;
-                console.log(id);
                 let greenText = document.getElementById(id);
-                console.log(json[i].active);
                 if (json[i].active === true) {
-                    console.log("GREEN!!!");
                     greenText.style.color = "green";
                 }
             }
