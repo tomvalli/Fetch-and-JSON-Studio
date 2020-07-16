@@ -11,13 +11,22 @@ function init() {
                         <h3>${[json[i].firstName]} ${[json[i].lastName]}</h3>
                         <ul>
                             <li>Hours in space: ${[json[i].hoursInSpace]}</li>
-                            <li>Active: ${[json[i].active]}</li>
+                            <li id="id${i}">Active: ${[json[i].active]}</li>
                             <li>Skills: ${[json[i].skills.join(", ")]}</li>
                         </ul>
                     </div>
                     <img class="avatar" src="${[json[i].picture]}">
                 </div>
                 `;
+
+                let id = "id" + i;
+                console.log(id);
+                let greenText = document.getElementById(id);
+                console.log(json[i].active);
+                if (json[i].active === true) {
+                    console.log("GREEN!!!");
+                    greenText.style.color = "green";
+                }
             }
         });
     });
